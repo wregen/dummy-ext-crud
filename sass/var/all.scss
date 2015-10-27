@@ -1,0 +1,10 @@
+/*
+ * This is is imported by virtue of "sass.var" in "app.json".
+ */
+
+$enable-font-awesome: dynamic(true);
+
+.app-header {
+    font-size:1.6rem;
+    padding:20px;
+}
