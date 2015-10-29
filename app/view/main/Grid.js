@@ -1,20 +1,19 @@
 Ext.define('C.view.main.Grid', {
     extend: 'Ext.grid.Panel',
     xtype: 'maingrid',
-    store: 'Entries',
-    title: {
-        bind: '{gridTitle}'
+    publishes:['currentEntry'],
+    bind: {
+        store: '{entries}',
+        title: '{gridTitle}'
     },
     dockedItems: [{
         xtype: 'toolbar',
         items: ['->', {
             xtype: 'button',
-            itemId: 'addBtn',
+            action: 'add',
             bind: '{addBtnText}',
             iconCls: 'fa-plus-circle',
-            listeners: {
-                click: 'onAddBtnClick'
-            }
+            handler:  'onGridAddBtnClick'
         }]
     }],
     columns: [{
@@ -22,11 +21,9 @@ Ext.define('C.view.main.Grid', {
         width: 40,
         align: 'center',
         items: [{
-            action: 'delRecord',
+            action: 'del',
             iconCls: 'fa-minus-circle',
-            handler: function(view, rowIndex, colIndex, item, e, record) {
-                this.up('maingrid').fireEvent('delete', record);
-            },
+            handler: 'onGridDelBtnClick'
         }]
     }, {
         text: 'Id',

@@ -1,15 +1,14 @@
 Ext.define('C.view.main.Main', {
     extend: 'Ext.Container',
-    xtype: 'app-main',
+    xtype: 'mainview',
 
     requires: [
         'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
 
-        'C.view.main.MainController',
-        'C.view.main.MainModel',
         'C.view.main.Grid',
-        'C.view.main.Form'
+        'C.view.main.Form',
+        'C.view.main.MainModel',
+        'C.view.main.MainController'
     ],
     layout: 'border',
     controller: 'main',
@@ -38,7 +37,7 @@ Ext.define('C.view.main.Main', {
             cls: 'info-panel',
             bodyPadding: 10,
             bind: {
-                html: '{loremIpsum}'
+                html: '{infoText}'
             }
         }, {
             xtype: 'mainform'

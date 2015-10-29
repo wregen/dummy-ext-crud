@@ -1,5 +1,9 @@
 Ext.define('C.model.Entry', {
     extend: 'Ext.data.Model',
+    idProperty: "id",
+    schema: {
+        namespace: "C.model"
+    },
     identifier: {
         type: 'sequential',
         seed: 4
